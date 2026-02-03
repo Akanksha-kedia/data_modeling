@@ -1,0 +1,86 @@
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#333" />
+    </marker>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="600" fill="#f8f9fa" stroke="none"/>
+  
+  <!-- Title -->
+  <text x="400" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#2c3e50">
+    Entity Relationship Diagram - E-commerce Data Model
+  </text>
+  
+  <!-- dim_customers -->
+  <rect x="50" y="80" width="180" height="120" fill="#e3f2fd" stroke="#1976d2" stroke-width="2" rx="5"/>
+  <text x="140" y="100" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#1976d2">dim_customers</text>
+  <line x1="60" y1="110" x2="220" y2="110" stroke="#1976d2" stroke-width="1"/>
+  <text x="60" y="125" font-family="Arial, sans-serif" font-size="11" fill="#333">🔑 customer_sk (PK)</text>
+  <text x="60" y="140" font-family="Arial, sans-serif" font-size="11" fill="#333">customer_id (NK)</text>
+  <text x="60" y="155" font-family="Arial, sans-serif" font-size="11" fill="#333">customer_name</text>
+  <text x="60" y="170" font-family="Arial, sans-serif" font-size="11" fill="#333">customer_segment</text>
+  
+  <!-- dim_products -->
+  <rect x="570" y="80" width="180" height="120" fill="#f3e5f5" stroke="#7b1fa2" stroke-width="2" rx="5"/>
+  <text x="660" y="100" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#7b1fa2">dim_products</text>
+  <line x1="580" y1="110" x2="740" y2="110" stroke="#7b1fa2" stroke-width="1"/>
+  <text x="580" y="125" font-family="Arial, sans-serif" font-size="11" fill="#333">🔑 product_sk (PK)</text>
+  <text x="580" y="140" font-family="Arial, sans-serif" font-size="11" fill="#333">product_id (NK)</text>
+  <text x="580" y="155" font-family="Arial, sans-serif" font-size="11" fill="#333">product_name</text>
+  <text x="580" y="170" font-family="Arial, sans-serif" font-size="11" fill="#333">category_level_1</text>
+  
+  <!-- fact_sales_transactions (center) -->
+  <rect x="310" y="250" width="180" height="160" fill="#ffebee" stroke="#d32f2f" stroke-width="3" rx="5"/>
+  <text x="400" y="270" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#d32f2f">fact_sales_transactions</text>
+  <line x1="320" y1="280" x2="480" y2="280" stroke="#d32f2f" stroke-width="1"/>
+  <text x="320" y="295" font-family="Arial, sans-serif" font-size="11" fill="#333">🔑 transaction_sk (PK)</text>
+  <text x="320" y="310" font-family="Arial, sans-serif" font-size="11" fill="#333">🔗 customer_sk (FK)</text>
+  <text x="320" y="325" font-family="Arial, sans-serif" font-size="11" fill="#333">🔗 product_sk (FK)</text>
+  <text x="320" y="340" font-family="Arial, sans-serif" font-size="11" fill="#333">🔗 store_sk (FK)</text>
+  <text x="320" y="355" font-family="Arial, sans-serif" font-size="11" fill="#333">🔗 order_date_sk (FK)</text>
+  <text x="320" y="370" font-family="Arial, sans-serif" font-size="11" fill="#333">💰 net_sales_amount</text>
+  <text x="320" y="385" font-family="Arial, sans-serif" font-size="11" fill="#333">📊 quantity_ordered</text>
+  <text x="320" y="400" font-family="Arial, sans-serif" font-size="11" fill="#333">📈 gross_profit</text>
+  
+  <!-- dim_stores -->
+  <rect x="50" y="450" width="180" height="120" fill="#e8f5e8" stroke="#388e3c" stroke-width="2" rx="5"/>
+  <text x="140" y="470" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#388e3c">dim_stores</text>
+  <line x1="60" y1="480" x2="220" y2="480" stroke="#388e3c" stroke-width="1"/>
+  <text x="60" y="495" font-family="Arial, sans-serif" font-size="11" fill="#333">🔑 store_sk (PK)</text>
+  <text x="60" y="510" font-family="Arial, sans-serif" font-size="11" fill="#333">store_id (NK)</text>
+  <text x="60" y="525" font-family="Arial, sans-serif" font-size="11" fill="#333">store_name</text>
+  <text x="60" y="540" font-family="Arial, sans-serif" font-size="11" fill="#333">region</text>
+  
+  <!-- dim_time -->
+  <rect x="570" y="450" width="180" height="120" fill="#fff3e0" stroke="#f57c00" stroke-width="2" rx="5"/>
+  <text x="660" y="470" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#f57c00">dim_time</text>
+  <line x1="580" y1="480" x2="740" y2="480" stroke="#f57c00" stroke-width="1"/>
+  <text x="580" y="495" font-family="Arial, sans-serif" font-size="11" fill="#333">🔑 time_sk (PK)</text>
+  <text x="580" y="510" font-family="Arial, sans-serif" font-size="11" fill="#333">full_date</text>
+  <text x="580" y="525" font-family="Arial, sans-serif" font-size="11" fill="#333">year_number</text>
+  <text x="580" y="540" font-family="Arial, sans-serif" font-size="11" fill="#333">quarter_name</text>
+  
+  <!-- Relationships -->
+  <!-- Customer to Fact -->
+  <line x1="230" y1="140" x2="310" y2="310" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="260" y="220" font-family="Arial, sans-serif" font-size="10" fill="#333">1:M</text>
+  
+  <!-- Product to Fact -->
+  <line x1="570" y1="140" x2="490" y2="325" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="530" y="220" font-family="Arial, sans-serif" font-size="10" fill="#333">1:M</text>
+  
+  <!-- Store to Fact -->
+  <line x1="230" y1="510" x2="310" y2="340" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="260" y="420" font-family="Arial, sans-serif" font-size="10" fill="#333">1:M</text>
+  
+  <!-- Time to Fact -->
+  <line x1="570" y1="510" x2="490" y2="355" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="530" y="420" font-family="Arial, sans-serif" font-size="10" fill="#333">1:M</text>
+  
+  <!-- Legend -->
+  <rect x="20" y="20" width="150" height="40" fill="white" stroke="#ccc" stroke-width="1" rx="3"/>
+  <text x="30" y="35" font-family="Arial, sans-serif" font-size="10" fill="#333">🔑 Primary Key</text>
+  <text x="30" y="50" font-family="Arial, sans-serif" font-size="10" fill="#333">🔗 Foreign Key</text>
+</svg>

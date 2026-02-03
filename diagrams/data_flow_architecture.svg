@@ -1,0 +1,156 @@
+<svg width="900" height="700" viewBox="0 0 900 700" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#333" />
+    </marker>
+    <linearGradient id="sourceGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4fc3f7;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#29b6f6;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="stagingGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffb74d;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#ff9800;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="warehouseGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#81c784;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#4caf50;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="900" height="700" fill="#f5f5f5" stroke="none"/>
+  
+  <!-- Title -->
+  <text x="450" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#1565c0">
+    Data Engineering Architecture - E-commerce Analytics Platform
+  </text>
+  
+  <!-- Source Systems Layer -->
+  <text x="50" y="70" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#1565c0">Source Systems</text>
+  
+  <!-- E-commerce Platform -->
+  <rect x="30" y="90" width="140" height="80" fill="url(#sourceGrad)" stroke="#0277bd" stroke-width="2" rx="8"/>
+  <text x="100" y="115" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">E-commerce Platform</text>
+  <text x="100" y="135" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">• Orders</text>
+  <text x="100" y="150" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">• Customers</text>
+  <text x="100" y="165" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">• Products</text>
+  
+  <!-- CRM System -->
+  <rect x="30" y="200" width="140" height="80" fill="url(#sourceGrad)" stroke="#0277bd" stroke-width="2" rx="8"/>
+  <text x="100" y="225" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">CRM System</text>
+  <text x="100" y="245" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">• Customer Profiles</text>
+  <text x="100" y="260" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">• Segments</text>
+  
+  <!-- Inventory System -->
+  <rect x="30" y="310" width="140" height="80" fill="url(#sourceGrad)" stroke="#0277bd" stroke-width="2" rx="8"/>
+  <text x="100" y="335" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">Inventory System</text>
+  <text x="100" y="355" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">• Product Catalog</text>
+  <text x="100" y="370" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">• Stock Levels</text>
+  
+  <!-- Staging/ETL Layer -->
+  <text x="300" y="70" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#e65100">Staging & ETL</text>
+  
+  <!-- Data Ingestion -->
+  <rect x="250" y="120" width="140" height="60" fill="url(#stagingGrad)" stroke="#ef6c00" stroke-width="2" rx="8"/>
+  <text x="320" y="140" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">Data Ingestion</text>
+  <text x="320" y="160" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">Apache Kafka / Airflow</text>
+  
+  <!-- Data Validation -->
+  <rect x="250" y="200" width="140" height="60" fill="url(#stagingGrad)" stroke="#ef6c00" stroke-width="2" rx="8"/>
+  <text x="320" y="220" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">Data Validation</text>
+  <text x="320" y="240" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">Quality Checks</text>
+  
+  <!-- Data Transformation -->
+  <rect x="250" y="280" width="140" height="60" fill="url(#stagingGrad)" stroke="#ef6c00" stroke-width="2" rx="8"/>
+  <text x="320" y="300" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">Data Transformation</text>
+  <text x="320" y="320" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">dbt / Spark</text>
+  
+  <!-- Data Warehouse Layer -->
+  <text x="500" y="70" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#2e7d32">Data Warehouse</text>
+  
+  <!-- Dimension Tables -->
+  <rect x="450" y="100" width="120" height="100" fill="url(#warehouseGrad)" stroke="#388e3c" stroke-width="2" rx="8"/>
+  <text x="510" y="120" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">Dimensions</text>
+  <text x="510" y="140" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">• dim_customers</text>
+  <text x="510" y="155" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">• dim_products</text>
+  <text x="510" y="170" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">• dim_stores</text>
+  <text x="510" y="185" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">• dim_time</text>
+  
+  <!-- Fact Tables -->
+  <rect x="450" y="220" width="120" height="100" fill="url(#warehouseGrad)" stroke="#388e3c" stroke-width="2" rx="8"/>
+  <text x="510" y="240" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">Facts</text>
+  <text x="510" y="260" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">• fact_sales</text>
+  <text x="510" y="275" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">• fact_inventory</text>
+  <text x="510" y="290" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">• fact_customer_activity</text>
+  
+  <!-- Real-time Analytics -->
+  <text x="700" y="70" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#6a1b9a">Analytics Layer</text>
+  
+  <!-- Apache Pinot -->
+  <rect x="650" y="100" width="140" height="80" fill="#9c27b0" stroke="#7b1fa2" stroke-width="2" rx="8"/>
+  <text x="720" y="125" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">Apache Pinot</text>
+  <text x="720" y="145" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">Real-time OLAP</text>
+  <text x="720" y="160" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">Sub-second Queries</text>
+  
+  <!-- BI Tools -->
+  <rect x="650" y="200" width="140" height="80" fill="#9c27b0" stroke="#7b1fa2" stroke-width="2" rx="8"/>
+  <text x="720" y="225" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">BI Tools</text>
+  <text x="720" y="245" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">• Tableau</text>
+  <text x="720" y="260" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">• Grafana</text>
+  
+  <!-- Machine Learning -->
+  <rect x="650" y="300" width="140" height="80" fill="#9c27b0" stroke="#7b1fa2" stroke-width="2" rx="8"/>
+  <text x="720" y="325" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">ML Platform</text>
+  <text x="720" y="345" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">• Predictive Analytics</text>
+  <text x="720" y="360" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">• Recommendations</text>
+  
+  <!-- Data Flow Arrows -->
+  <!-- Source to Staging -->
+  <line x1="170" y1="130" x2="250" y2="150" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="170" y1="240" x2="250" y2="230" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="170" y1="350" x2="250" y2="310" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- Staging to Warehouse -->
+  <line x1="390" y1="150" x2="450" y2="150" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="390" y1="230" x2="450" y2="150" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="390" y1="310" x2="450" y2="270" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- Warehouse to Analytics -->
+  <line x1="570" y1="150" x2="650" y2="140" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="570" y1="270" x2="650" y2="240" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="570" y1="270" x2="650" y2="340" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- Key Metrics Box -->
+  <rect x="50" y="450" width="800" height="200" fill="white" stroke="#ccc" stroke-width="2" rx="10"/>
+  <text x="450" y="480" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#1565c0">
+    Key Data Engineering Metrics & SLAs
+  </text>
+  
+  <!-- Metrics Grid -->
+  <text x="80" y="510" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#2e7d32">Data Quality:</text>
+  <text x="80" y="530" font-family="Arial, sans-serif" font-size="12" fill="#333">• 99.9% Accuracy Target</text>
+  <text x="80" y="545" font-family="Arial, sans-serif" font-size="12" fill="#333">• 100% Completeness for Core Dims</text>
+  <text x="80" y="560" font-family="Arial, sans-serif" font-size="12" fill="#333">• Data Freshness &lt; 15 minutes</text>
+  
+  <text x="350" y="510" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#e65100">Performance:</text>
+  <text x="350" y="530" font-family="Arial, sans-serif" font-size="12" fill="#333">• Query Response &lt; 500ms</text>
+  <text x="350" y="545" font-family="Arial, sans-serif" font-size="12" fill="#333">• ETL Processing &lt; 2 hours</text>
+  <text x="350" y="560" font-family="Arial, sans-serif" font-size="12" fill="#333">• 99.5% Uptime SLA</text>
+  
+  <text x="620" y="510" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#6a1b9a">Scalability:</text>
+  <text x="620" y="530" font-family="Arial, sans-serif" font-size="12" fill="#333">• Handle 10M+ transactions/day</text>
+  <text x="620" y="545" font-family="Arial, sans-serif" font-size="12" fill="#333">• Auto-scaling based on load</text>
+  <text x="620" y="560" font-family="Arial, sans-serif" font-size="12" fill="#333">• Support 500+ concurrent users</text>
+  
+  <text x="80" y="590" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#d32f2f">Monitoring:</text>
+  <text x="80" y="610" font-family="Arial, sans-serif" font-size="12" fill="#333">• Data Lineage Tracking</text>
+  <text x="80" y="625" font-family="Arial, sans-serif" font-size="12" fill="#333">• Automated Alerting</text>
+  
+  <text x="350" y="590" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#795548">Security:</text>
+  <text x="350" y="610" font-family="Arial, sans-serif" font-size="12" fill="#333">• Row-level Security</text>
+  <text x="350" y="625" font-family="Arial, sans-serif" font-size="12" fill="#333">• Data Masking for PII</text>
+  
+  <text x="620" y="590" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#607d8b">Backup & Recovery:</text>
+  <text x="620" y="610" font-family="Arial, sans-serif" font-size="12" fill="#333">• Daily Automated Backups</text>
+  <text x="620" y="625" font-family="Arial, sans-serif" font-size="12" fill="#333">• RTO &lt; 4 hours, RPO &lt; 1 hour</text>
+</svg>

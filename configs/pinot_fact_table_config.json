@@ -1,0 +1,246 @@
+{
+  "tableName": "fact_sales_transactions",
+  "tableType": "OFFLINE",
+  "segmentsConfig": {
+    "timeType": "DAYS",
+    "timeColumnName": "order_timestamp",
+    "replication": "2",
+    "segmentPushType": "APPEND",
+    "segmentAssignmentStrategy": "BalanceNumSegmentAssignmentStrategy"
+  },
+  "tenants": {
+    "broker": "DefaultTenant",
+    "server": "DefaultTenant"
+  },
+  "tableIndexConfig": {
+    "loadMode": "MMAP",
+    "invertedIndexColumns": [
+      "customer_sk",
+      "product_sk", 
+      "store_sk",
+      "order_date_sk",
+      "transaction_type",
+      "payment_method"
+    ],
+    "bloomFilterColumns": [
+      "order_id",
+      "promotion_code"
+    ],
+    "rangeIndexColumns": [
+      "order_timestamp",
+      "net_sales_amount",
+      "quantity_ordered"
+    ],
+    "sortedColumn": [
+      "order_timestamp"
+    ],
+    "noDictionaryColumns": [
+      "gross_sales_amount",
+      "net_sales_amount", 
+      "total_cost",
+      "gross_profit",
+      "order_timestamp"
+    ],
+    "onHeapDictionaryColumns": [
+      "transaction_type",
+      "payment_method"
+    ],
+    "aggregateMetrics": [
+      {
+        "columnName": "daily_sales_sum",
+        "aggregationFunction": "SUM",
+        "aggregatedColumn": "net_sales_amount"
+      },
+      {
+        "columnName": "daily_quantity_sum", 
+        "aggregationFunction": "SUM",
+        "aggregatedColumn": "quantity_ordered"
+      },
+      {
+        "columnName": "daily_transaction_count",
+        "aggregationFunction": "COUNT",
+        "aggregatedColumn": "transaction_sk"
+      }
+    ]
+  },
+  "metadata": {
+    "customConfigs": {
+      "segment.flush.threshold.size": "50000000",
+      "segment.flush.threshold.time": "3600000"
+    }
+  },
+  "fieldConfigList": [
+    {
+      "name": "transaction_sk",
+      "dataType": "LONG",
+      "isSingleValueField": true
+    },
+    {
+      "name": "customer_sk", 
+      "dataType": "LONG",
+      "isSingleValueField": true
+    },
+    {
+      "name": "product_sk",
+      "dataType": "LONG", 
+      "isSingleValueField": true
+    },
+    {
+      "name": "store_sk",
+      "dataType": "LONG",
+      "isSingleValueField": true
+    },
+    {
+      "name": "order_date_sk",
+      "dataType": "LONG",
+      "isSingleValueField": true
+    },
+    {
+      "name": "ship_date_sk",
+      "dataType": "LONG",
+      "isSingleValueField": true
+    },
+    {
+      "name": "order_id",
+      "dataType": "STRING",
+      "isSingleValueField": true
+    },
+    {
+      "name": "order_line_number",
+      "dataType": "INT", 
+      "isSingleValueField": true
+    },
+    {
+      "name": "transaction_type",
+      "dataType": "STRING",
+      "isSingleValueField": true
+    },
+    {
+      "name": "payment_method",
+      "dataType": "STRING",
+      "isSingleValueField": true
+    },
+    {
+      "name": "promotion_code",
+      "dataType": "STRING",
+      "isSingleValueField": true
+    },
+    {
+      "name": "quantity_ordered",
+      "dataType": "INT",
+      "isSingleValueField": true
+    },
+    {
+      "name": "quantity_shipped", 
+      "dataType": "INT",
+      "isSingleValueField": true
+    },
+    {
+      "name": "quantity_returned",
+      "dataType": "INT",
+      "isSingleValueField": true
+    },
+    {
+      "name": "unit_price",
+      "dataType": "DOUBLE",
+      "isSingleValueField": true
+    },
+    {
+      "name": "unit_cost",
+      "dataType": "DOUBLE", 
+      "isSingleValueField": true
+    },
+    {
+      "name": "discount_amount",
+      "dataType": "DOUBLE",
+      "isSingleValueField": true
+    },
+    {
+      "name": "tax_amount",
+      "dataType": "DOUBLE",
+      "isSingleValueField": true
+    },
+    {
+      "name": "shipping_amount", 
+      "dataType": "DOUBLE",
+      "isSingleValueField": true
+    },
+    {
+      "name": "gross_sales_amount",
+      "dataType": "DOUBLE",
+      "isSingleValueField": true
+    },
+    {
+      "name": "net_sales_amount",
+      "dataType": "DOUBLE",
+      "isSingleValueField": true
+    },
+    {
+      "name": "total_cost",
+      "dataType": "DOUBLE",
+      "isSingleValueField": true
+    },
+    {
+      "name": "gross_profit",
+      "dataType": "DOUBLE", 
+      "isSingleValueField": true
+    },
+    {
+      "name": "inventory_quantity",
+      "dataType": "INT",
+      "isSingleValueField": true
+    },
+    {
+      "name": "discount_percentage",
+      "dataType": "DOUBLE",
+      "isSingleValueField": true
+    },
+    {
+      "name": "profit_margin_percentage",
+      "dataType": "DOUBLE",
+      "isSingleValueField": true
+    },
+    {
+      "name": "order_timestamp",
+      "dataType": "LONG",
+      "isSingleValueField": true,
+      "timeFieldSpec": {
+        "incomingGranularitySpec": {
+          "timeType": "MILLISECONDS",
+          "dataType": "LONG",
+          "name": "order_timestamp"
+        }
+      }
+    },
+    {
+      "name": "payment_timestamp",
+      "dataType": "LONG", 
+      "isSingleValueField": true
+    },
+    {
+      "name": "ship_timestamp",
+      "dataType": "LONG",
+      "isSingleValueField": true
+    },
+    {
+      "name": "delivery_timestamp",
+      "dataType": "LONG",
+      "isSingleValueField": true
+    },
+    {
+      "name": "source_system",
+      "dataType": "STRING",
+      "isSingleValueField": true
+    },
+    {
+      "name": "data_quality_score",
+      "dataType": "DOUBLE",
+      "isSingleValueField": true
+    },
+    {
+      "name": "is_processed",
+      "dataType": "BOOLEAN",
+      "isSingleValueField": true
+    }
+  ]
+}
